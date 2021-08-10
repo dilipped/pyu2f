@@ -228,6 +228,7 @@ class UsbHidTransport(object):
     self.cid = UsbHidTransport.U2FHID_BROADCAST_CID
     nonce = bytearray(os.urandom(8))
     r = self.InternalExchange(UsbHidTransport.U2FHID_INIT, nonce)
+    print('Init response from hidtransport: ', r)
     if len(r) < 17:
       raise errors.HidError('unexpected init reply len')
     if r[0:8] != nonce:

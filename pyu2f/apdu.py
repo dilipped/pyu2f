@@ -76,6 +76,7 @@ class CommandApdu(object):
       out.extend([0x00, 0x00])  # Le
     else:
       out.extend([0x00, 0x00, 0x00])  # Le
+    print('Output from CommandApdu.ToBytesArray: ', out)
     return out
 
   def ToLegacyU2FByteArray(self):
@@ -99,7 +100,7 @@ class CommandApdu(object):
     if self.data:
       out.extend(self.data)
     out.extend([0x00, 0x00])  # Le
-
+    print('Output from CommandApdu.ToLegacyU2FByteArray: ', out)
     return out
 
   def InternalEncodeLc(self):
